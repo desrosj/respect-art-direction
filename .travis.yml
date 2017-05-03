@@ -34,11 +34,11 @@ matrix:
     - php: 5.3
       env: WP_VERSION=latest
 
-before_install:
-  - composer self-update
-
-install:
-  - composer install --prefer-dist
+#before_install:
+#  - composer self-update
+#
+#install:
+#  - composer install --prefer-dist
 
 before_script:
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
@@ -69,10 +69,10 @@ script:
     if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
       phpcs --standard=phpcs.ruleset.xml $(find . -name '*.php')
     fi
-  - |
-    if [[ $TRAVIS_BRANCH == 'master' ]]; then
-      vendor/bin/apigen generate -s ./includes -d ./docs/
-    fi
+#  - |
+#    if [[ $TRAVIS_BRANCH == 'master' ]]; then
+#      vendor/bin/apigen generate -s ./includes -d ./docs/
+#    fi
 
 after_script:
   - ./bin/codeclimate.sh
@@ -81,12 +81,12 @@ addons:
   codeclimate:
     repo_token: $CODECLIMATE_REPO_TOKEN
 
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  local_dir: docs
-  repo: desrosj/respect-art-direction
-  on:
-    branch: master
-    condition: ${TRAVIS_PHP_VERSION:0:3} == "7.1" && $WP_VERSION == 'latest'
+#deploy:
+#  provider: pages
+#  skip_cleanup: true
+#  github_token: $GITHUB_TOKEN
+#  local_dir: docs
+#  repo: desrosj/respect-art-direction
+#  on:
+#    branch: master
+#    condition: ${TRAVIS_PHP_VERSION:0:3} == "7.1" && $WP_VERSION == 'latest'
