@@ -10,3 +10,5 @@ node_modules/
 .mdlrc
 .scss-lint.yml
 markdown.rb
+vendor
+composer.lock
