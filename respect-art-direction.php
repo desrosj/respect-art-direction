@@ -12,13 +12,13 @@
  * @package     Respect_Art_Direction
  */
 
-include_once( 'functions-source-set.php' );
+include_once( 'functions-image-sources.php' );
 include_once( 'functions-breakpoints.php' );
 include_once( 'functions-display.php' );
 
-global $source_sizes, $breakpoints;
+global $image_sources, $breakpoints;
 
-$source_sizes = array();
+$image_sources = array();
 $breakpoints = array();
 
 /**
@@ -33,16 +33,18 @@ function rad_plugins_loaded() {
 	rad_add_breakpoint( 'rad_small', '(max-width: 619px)' );
 
 	/*
-	 * First source set.
+	 * First image source.
 	 */
-	rad_add_source_set( 'source_size1', array(
+	rad_add_image_source( 'source_size1', array(
 		'rad_large' => array(
 			'custom1_large_size',
 		),
 		'rad_medium' => array(
 			'custom1_medium_size',
+			'custom1_small_size'
 		),
 		'rad_small' => array(
+			'custom1_medium_size',
 			'custom1_small_size',
 		),
 		'default' => array(
@@ -51,9 +53,9 @@ function rad_plugins_loaded() {
 	) );
 
 	/*
-	 * Second source set.
+	 * Second image source.
 	 */
-	rad_add_source_set( 'source_size2', array(
+	rad_add_image_source( 'source_size2', array(
 		'rad_large' => array(
 			'custom2_large_size',
 		),
@@ -76,7 +78,7 @@ add_action( 'plugins_loaded', 'rad_plugins_loaded' );
 function rad_after_setup_theme() {
 	add_image_size( 'custom1_large_size', 1200, 300, true );
 	add_image_size( 'custom1_medium_size', 600, 300, true );
-	add_image_size( 'custom1_small_size', 200, 200, true );
+	add_image_size( 'custom1_small_size', 300, 150, true );
 	add_image_size( 'custom1_default_size', 1200, 300, true );
 
 	add_image_size( 'custom2_large_size', 1600, 400, true );

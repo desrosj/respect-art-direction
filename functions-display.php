@@ -18,7 +18,7 @@
  * @return mixed
  */
 function rad_post_thumbnail_html( $html, $post_id, $post_thumbnail_id, $size, $attr ) {
-	if ( ! rad_image_size_is_source_set( $size ) ) {
+	if ( ! rad_image_size_is_image_source( $size ) ) {
 		return $html;
 	}
 
@@ -35,11 +35,11 @@ add_filter( 'post_thumbnail_html', 'rad_post_thumbnail_html', 10, 5 );
  * @return string Image HTML markup.
  */
 function rad_the_post_thumbnail_with_art_direction( $image_id, $source_size = '' ) {
-	global $source_sizes;
+	global $image_sources;
 
 	$html = '<picture>';
 
-	foreach ( $source_sizes[ $source_size ] as $breakpoint => $size ) {
+	foreach ( $image_sources[ $source_size ] as $breakpoint => $size ) {
 		$sources = array();
 		$breakpoint_info = rad_get_breakpoint( $breakpoint );
 

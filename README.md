@@ -31,32 +31,33 @@ function mytheme_add_image_sizes() {
 add_action( 'after_setup_theme', 'mytheme_add_image_sizes' );
 ```
 
-What if we took a similar approach to defining breakpoints and source sets?
+What if we took a similar approach to defining breakpoints and image sources?
 
 ### Defining Breakpoints
 
 ```php
 function mytheme_add_breakpoints() {
-    rad_add_breakpoint( 'large', '(min-width: 1000px)' );
-    rad_add_breakpoint( 'medium', '(min-width: 480px)' );
+    rad_add_breakpoint( 'mytheme_large', '(min-width: 1000px)' );
+    rad_add_breakpoint( 'mytheme_medium', '(min-width: 480px)' );
+    rad_add_breakpoint( 'mytheme_small', '(max-width: 479px)' );
 }
 add_action( 'after_setup_theme', 'mytheme_add_breakpoints' );
 ```
 
 A breakpoint consists of a name, and a media query that attribute.
 
-### Defining Source Sets
+### Defining Image Sources
 
 ```php
-function mytheme_add_source_sets() {
-    rad_add_source_set( 'source_size1', array(
-        'rad_large' => array(
+function mytheme_add_image_sources() {
+    rad_add_image_source( 'source_size1', array(
+        'mytheme_large' => array(
             'custom1_large_size',
         ),
-        'rad_medium' => array(
+        'mytheme_medium' => array(
             'custom1_medium_size',
         ),
-        'rad_small' => array(
+        'mytheme_small' => array(
             'custom1_small_size',
         ),
         'default' => array(
@@ -64,14 +65,14 @@ function mytheme_add_source_sets() {
         ),
     ) );
 }
-add_action( 'after_setup_theme', 'mytheme_add_breakpoints' );
+add_action( 'after_setup_theme', 'mytheme_add_image_sources' );
 ```
 
-A source set is a name and a multidimensional array. The key of each array
+An image source is a name and a multidimensional array. The key of each array
 index represents the breakpoint it belongs to, and the values in each array
 represent the registered image sizes that belong to that breakpoint.
 
-The source set name is a sort of pseudo image name. If you request markup using
-a source set as the image size, it will replace the markup with a `<picture>`
-tag properly populated with `<source>` tags. based on the registered
-breakpoints and image sizes.
+The image source name is a sort of pseudo image name. If you request markup
+using a source set as the image size, it will replace the markup with a
+`<picture>` tag properly populated with `<source>` tags. based on the
+registered breakpoints and image sizes.
