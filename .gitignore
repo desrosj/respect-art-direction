@@ -5,3 +5,8 @@ node_modules/
 *.sql
 *.tar.gz
 *.zip
+.eslintignore
+.eslintrc
+.mdlrc
+.scss-lint.yml
+markdown.rb
