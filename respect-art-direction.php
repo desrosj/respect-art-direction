@@ -7,7 +7,7 @@
  * Author URI:  https://jonathandesrosiers.com
  * Text Domain: respect-art-direction
  * Domain Path: /languages
- * Version:     0.1.0-dev
+ * Version:     0.1.0
  *
  * @package     Respect_Art_Direction
  */
