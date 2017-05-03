@@ -13,7 +13,6 @@ notifications:
 
 cache:
   directories:
-    - vendor
     - $HOME/.composer/cache
 
 matrix:
@@ -34,6 +33,12 @@ matrix:
       env: WP_VERSION=trunk
     - php: 5.3
       env: WP_VERSION=latest
+
+before_install:
+  - composer self-update
+
+install:
+  - composer install --prefer-dist
 
 before_script:
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
@@ -66,7 +71,7 @@ script:
     fi
   - |
     if [[ $TRAVIS_BRANCH == 'master' ]]; then
-      apigen generate -s ./includes -d ./docs/
+      vendor/bin/apigen generate -s ./includes -d ./docs/
     fi
 
 after_script:
