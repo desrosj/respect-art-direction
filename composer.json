@@ -1,8 +1,0 @@
-{
-	"require-dev": {
-		"codeclimate/php-test-reporter": "^0.4.4"
-	},
-	"require": {
-		"apigen/apigen": "^4.1"
-	}
-}
