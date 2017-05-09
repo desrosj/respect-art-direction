@@ -22,7 +22,7 @@ $rad_image_sources = array();
 $rad_breakpoints = array();
 
 /**
- * Register custom breakpoints and source sets.
+ * Example for registering custom breakpoints and source sets.
  */
 function rad_plugins_loaded() {
 	/*
@@ -70,7 +70,6 @@ function rad_plugins_loaded() {
 		),
 	) );
 }
-//add_action( 'plugins_loaded', 'rad_plugins_loaded' );
 
 /**
  * Register custom image sizes.
