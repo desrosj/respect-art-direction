@@ -12,9 +12,9 @@
  * @param array  $image_sizes     List of image sizes for the sourcesource.
  */
 function rad_add_image_source( $source_set_name, $image_sizes = array() ) {
-	global $image_sources;
+	global $rad_image_sources;
 
-	$image_sources[ $source_set_name ] = $image_sizes;
+	$rad_image_sources[ $source_set_name ] = $image_sizes;
 }
 
 /**
@@ -25,7 +25,7 @@ function rad_add_image_source( $source_set_name, $image_sizes = array() ) {
  * @return bool Whether the image size is a source.
  */
 function rad_image_size_is_image_source( $image_size ) {
-	global $image_sources;
+	global $rad_image_sources;
 
-	return isset( $image_sources[ $image_size ] );
+	return isset( $rad_image_sources[ $image_size ] );
 }

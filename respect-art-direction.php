@@ -16,9 +16,9 @@ include_once( 'functions-image-sources.php' );
 include_once( 'functions-breakpoints.php' );
 include_once( 'functions-display.php' );
 
-global $image_sources, $rad_breakpoints;
+global $rad_image_sources, $rad_breakpoints;
 
-$image_sources = array();
+$rad_image_sources = array();
 $rad_breakpoints = array();
 
 /**
@@ -70,7 +70,7 @@ function rad_plugins_loaded() {
 		),
 	) );
 }
-add_action( 'plugins_loaded', 'rad_plugins_loaded' );
+//add_action( 'plugins_loaded', 'rad_plugins_loaded' );
 
 /**
  * Register custom image sizes.
