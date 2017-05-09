@@ -12,3 +12,5 @@ node_modules/
 markdown.rb
 vendor
 composer.lock
+clover.xml
+codeclimate.json
