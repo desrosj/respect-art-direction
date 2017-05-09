@@ -53,21 +53,12 @@ before_script:
     fi
   - git config --global user.email "travis-ci@codeclimate.com"
   - git config --global user.name "Travis CI"
-  - |
-    if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
-      composer global require wp-coding-standards/wpcs
-      phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
-    fi
 
 script:
   - |
     if [[ ! -z "$WP_VERSION" ]] ; then
       phpunit
       WP_MULTISITE=1 phpunit
-    fi
-  - |
-    if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
-      phpcs --standard=phpcs.ruleset.xml $(find . -name '*.php')
     fi
 #  - |
 #    if [[ $TRAVIS_BRANCH == 'master' ]]; then
