@@ -69,7 +69,7 @@ after_script:
   - ./bin/codeclimate.sh
 
 addons:
-  codeclimate:
+  code_climate:
     repo_token: $CODECLIMATE_REPO_TOKEN
 
 #deploy:
