@@ -16,10 +16,10 @@ include_once( 'functions-image-sources.php' );
 include_once( 'functions-breakpoints.php' );
 include_once( 'functions-display.php' );
 
-global $image_sources, $breakpoints;
+global $image_sources, $rad_breakpoints;
 
 $image_sources = array();
-$breakpoints = array();
+$rad_breakpoints = array();
 
 /**
  * Register custom breakpoints and source sets.
