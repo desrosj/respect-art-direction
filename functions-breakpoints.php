@@ -9,12 +9,12 @@
  * Register a new break point.
  *
  * @param string $breakpoint_name Breakpoint name.
- * @param string $media_queries   Media query properties for the breakpoint.
+ * @param string $media_query     Media query properties for the breakpoint.
  */
-function rad_add_breakpoint( $breakpoint_name, $media_queries = '' ) {
+function rad_add_breakpoint( $breakpoint_name, $media_query = '' ) {
 	global $rad_breakpoints;
 
-	$rad_breakpoints[ $breakpoint_name ] = $media_queries;
+	$rad_breakpoints[ $breakpoint_name ] = $media_query;
 }
 
 /**
