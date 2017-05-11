@@ -50,7 +50,7 @@ A breakpoint consists of a name, and a media query that attribute.
 
 ```php
 function mytheme_add_image_sources() {
-    rad_add_image_source( 'source_size1', array(
+    rad_add_source_list( 'source_size1', array(
         'mytheme_large' => array(
             'custom1_large_size',
         ),

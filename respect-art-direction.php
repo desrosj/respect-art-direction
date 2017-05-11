@@ -12,13 +12,13 @@
  * @package     Respect_Art_Direction
  */
 
-include_once( 'functions-image-sources.php' );
+include_once( 'functions-source-lists.php' );
 include_once( 'functions-breakpoints.php' );
 include_once( 'functions-display.php' );
 
-global $rad_image_sources, $rad_breakpoints;
+global $rad_source_lists, $rad_breakpoints;
 
-$rad_image_sources = array();
+$rad_source_lists = array();
 $rad_breakpoints = array();
 
 /**
@@ -35,7 +35,7 @@ function rad_plugins_loaded() {
 	/*
 	 * First image source.
 	 */
-	rad_add_image_source( 'source_size1', array(
+	rad_add_source_list( 'source_size1', array(
 		'rad_large' => array(
 			'custom1_large_size',
 		),
@@ -55,7 +55,7 @@ function rad_plugins_loaded() {
 	/*
 	 * Second image source.
 	 */
-	rad_add_image_source( 'source_size2', array(
+	rad_add_source_list( 'source_size2', array(
 		'rad_large' => array(
 			'custom2_large_size',
 		),

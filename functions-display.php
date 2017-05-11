@@ -35,11 +35,11 @@ add_filter( 'post_thumbnail_html', 'rad_post_thumbnail_html', 10, 5 );
  * @return string Image HTML markup.
  */
 function rad_the_post_thumbnail_with_art_direction( $image_id, $source_size = '' ) {
-	global $rad_image_sources;
+	global $rad_source_lists;
 
 	$html = '<picture>';
 
-	foreach ( $rad_image_sources[ $source_size ] as $breakpoint => $size ) {
+	foreach ( $rad_source_lists[ $source_size ] as $breakpoint => $size ) {
 		$sources = array();
 		$breakpoint_info = rad_get_breakpoint( $breakpoint );
 
