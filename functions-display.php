@@ -37,7 +37,9 @@ add_filter( 'post_thumbnail_html', 'rad_post_thumbnail_html', 10, 5 );
 function rad_the_post_thumbnail_with_art_direction( $image_id, $source_name = '' ) {
 	global $rad_source_lists;
 
-	$html = '<picture>';
+	$html_tags = array(
+		'<picture>'
+	);
 
 	foreach ( $rad_source_lists[ $source_name ] as $breakpoint => $size ) {
 		$sources = array();
@@ -48,20 +50,22 @@ function rad_the_post_thumbnail_with_art_direction( $image_id, $source_name = ''
 			$sources[] = $image_src[0] . ' ' . $image_src[1] . 'w';
 		}
 
-		$html .= '<source';
+		$html = '<source';
 
 		if ( ! empty( $breakpoint_info ) ) {
 			$html .= ' media="' . esc_attr( $breakpoint_info ) . '"';
 		}
 
 		$html .= ' srcset="' . implode( ', ', $sources ) . '" />';
+
+		$html_tags[] = $html;
 	}
 
 	$default = wp_get_attachment_image_src( $image_id, 'custom1_default_size' );
 
-	$html .= '<img src="' . $default[0] . '" alt="Detail of the above quilt, highlighting the embroidery and exotic stitchwork." />';
+	$html_tags[] = '<img src="' . $default[0] . '" alt="Detail of the above quilt, highlighting the embroidery and exotic stitchwork." />';
 
-	$html .= '</picture>';
+	$html_tags[] = '</picture>';
 
-	return $html;
+	return implode( "\n", $html_tags );
 }
