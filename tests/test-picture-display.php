@@ -27,7 +27,7 @@ class Test_Picture_Display extends WP_UnitTestCase {
 		add_image_size( 'test_image_size_4', 1000, 800, true );
 		add_image_size( 'test_image_size_5', 500, 400, true );
 
-		$orig_file = DIR_TESTDATA . '/images/33772.JPG';
+		$orig_file = DIR_TESTDATA . '/images/33772.jpg';
 		$test_file = '/tmp/33772.JPG';
 		copy( $orig_file, $test_file );
 
