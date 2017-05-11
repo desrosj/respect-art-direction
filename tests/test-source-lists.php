@@ -97,7 +97,7 @@ class Test_Image_Sources extends WP_UnitTestCase {
 
 		$rad_source_lists = array();
 	}
-	
+
 	/**
 	 * Test rad_image_size_is_image_source().
 	 */
