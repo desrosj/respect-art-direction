@@ -18,6 +18,19 @@ function rad_add_source_list( $source_list_name, $image_sizes = array() ) {
 }
 
 /**
+ * Add an image size to a source list.
+ *
+ * @param string $source_list_name Source list name.
+ * @param string $image_size       Image size name.
+ * @param string $breakpoint       Breakpoint name.
+ */
+function rad_add_to_source_list( $source_list_name, $image_size, $breakpoint = 'default' ) {
+	global $rad_source_lists;
+
+	$rad_source_lists[ $source_list_name ][ $breakpoint ][] = $image_size;
+}
+
+/**
  * Checks if an image size is a registered image source.
  *
  * @param string $image_size Image size name to check.
