@@ -53,6 +53,26 @@ class Test_Breakpoints extends WP_UnitTestCase {
 		$this->assertEquals( '(max-width: 500px)', rad_get_breakpoint( 'test_breakpoint' ) );
 	}
 
+	/**
+	 * Test removing a breakpoint.
+	 */
+	function test_rad_remove_breakpoint() {
+		global $rad_breakpoints;
+
+		rad_add_breakpoint( 'test_breakpoint', '(max-width:500px)' );
+
+		$this->assertEquals( array(
+			'test_breakpoint' => '(max-width:500px)',
+		), $rad_breakpoints );
+
+		rad_remove_breakpoint( 'test_breakpoint' );
+
+		$this->assertEquals( array(), $rad_breakpoints );
+	}
+
+	/**
+	 * Reset breakpoint global.
+	 */
 	function tearDown() {
 		global $rad_breakpoints;
 

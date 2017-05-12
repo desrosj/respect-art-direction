@@ -46,3 +46,14 @@ function rad_get_breakpoint( $breakpoint_name ) {
 
 	return $rad_breakpoints[ $breakpoint_name ];
 }
+
+/**
+ * Remove a breakpoint.
+ *
+ * @param string $breakpoint_name Breakpoint to remove.
+ */
+function rad_remove_breakpoint( $breakpoint_name ) {
+	global $rad_breakpoints;
+
+	unset( $rad_breakpoints[ $breakpoint_name ] );
+}
