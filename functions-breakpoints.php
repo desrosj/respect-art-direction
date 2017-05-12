@@ -18,6 +18,19 @@ function rad_add_breakpoint( $breakpoint_name, $media_query = '' ) {
 }
 
 /**
+ * Register multiple breakpoints.
+ *
+ * @param array $breakpoints Associative array of breakpoint names and media query text.
+ */
+function rad_add_breakpoints( $breakpoints ) {
+	global $rad_breakpoints;
+
+	foreach ( $breakpoints as $breakpoint_name => $media_query ) {
+		$rad_breakpoints[ $breakpoint_name ] = $media_query;
+	}
+}
+
+/**
  * Retrieve a breakpoint.
  *
  * @param string $breakpoint_name Breakpoint to retrieve.
