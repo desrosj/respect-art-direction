@@ -26,6 +26,23 @@ class Test_Breakpoints extends WP_UnitTestCase {
 	}
 
 	/**
+	 * Test adding multiple breakpoints at once.
+	 */
+	function test_rad_add_breakpoints() {
+		global $rad_breakpoints;
+
+		rad_add_breakpoints( array(
+			'some_breakpoint' => '(a media query)',
+			'another_breakpoint' => '(more media queries)',
+		) );
+
+		$this->assertEquals( $rad_breakpoints, array(
+			'some_breakpoint' => '(a media query)',
+			'another_breakpoint' => '(more media queries)',
+		) );
+	}
+
+	/**
 	 * Test retreiving a breakpoint.
 	 */
 	function test_rad_get_breakpoint() {
@@ -34,5 +51,11 @@ class Test_Breakpoints extends WP_UnitTestCase {
 		rad_add_breakpoint( 'test_breakpoint', '(max-width: 500px)' );
 
 		$this->assertEquals( '(max-width: 500px)', rad_get_breakpoint( 'test_breakpoint' ) );
+	}
+
+	function tearDown() {
+		global $rad_breakpoints;
+
+		$rad_breakpoints = array();
 	}
 }
