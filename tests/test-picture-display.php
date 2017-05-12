@@ -25,13 +25,6 @@ class Test_Picture_Display extends WP_UnitTestCase {
 	public $attachment_id;
 
 	/**
-	 * Test image file path.
-	 *
-	 * @var string
-	 */
-	public $orig_file = DIR_TESTDATA . '/images/33772.jpg';
-
-	/**
 	 * Test file upload path.
 	 *
 	 * @var string
@@ -49,6 +42,8 @@ class Test_Picture_Display extends WP_UnitTestCase {
 	 * - Assign attachment as featured image on the test page.
 	 */
 	function setUp() {
+		$original_file = DIR_TESTDATA . '/images/33772.jpg';
+
 		add_image_size( 'test_image_size_1', 1200, 600, true );
 		add_image_size( 'test_image_size_2', 600, 300, true );
 		add_image_size( 'test_image_size_3', 300, 150, true );
@@ -77,7 +72,7 @@ class Test_Picture_Display extends WP_UnitTestCase {
 		) );
 
 		$this->test_file = '/tmp/33772.jpg';
-		copy( $this->orig_file, $this->test_file );
+		copy( $original_file, $this->test_file );
 
 		$this->attachment_id = $this->factory->attachment->create_object( $this->test_file, 0, array(
 			'post_mime_type' => 'image/jpg',
