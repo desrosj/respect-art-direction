@@ -66,7 +66,7 @@ script:
 #    fi
 
 after_script:
-  - ./bin/codeclimate.sh
+  - vendor/bin/test-reporter
 
 addons:
   code_climate:
