@@ -45,7 +45,7 @@ class Test_Image_Sources extends WP_UnitTestCase {
 				'image_size_4'
 			),
 		) );
-		
+
 		$rad_source_lists = array();
 	}
 

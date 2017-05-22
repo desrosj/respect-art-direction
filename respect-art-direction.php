@@ -14,12 +14,14 @@
 
 include_once( 'functions-source-lists.php' );
 include_once( 'functions-breakpoints.php' );
+include_once( 'functions-media-sets.php' );
 include_once( 'functions-display.php' );
 
-global $rad_source_lists, $rad_breakpoints;
+global $rad_source_lists, $rad_breakpoints, $rad_media_sets;
 
 $rad_source_lists = array();
-$rad_breakpoints = array();
+$rad_breakpoints  = array();
+$rad_media_sets   = array();
 
 /**
  * Example for registering custom breakpoints and source sets.
