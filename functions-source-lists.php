@@ -24,10 +24,10 @@ function rad_add_source_list( $source_list_name, $image_sizes = array() ) {
  * @param string $image_size       Image size name.
  * @param string $breakpoint       Breakpoint name.
  */
-function rad_add_to_source_list( $source_list_name, $image_size, $breakpoint = 'default' ) {
+function rad_add_to_source_list( $source_list_name, $image_size ) {
 	global $rad_source_lists;
 
-	$rad_source_lists[ $source_list_name ][ $breakpoint ][] = $image_size;
+	$rad_source_lists[ $source_list_name ][] = $image_size;
 }
 
 /**
